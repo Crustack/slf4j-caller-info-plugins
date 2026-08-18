@@ -123,8 +123,8 @@
         <artifactId>maven-invoker-plugin</artifactId>
         <configuration>
           <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
-          <projectsDirectory>slf4j-caller-info-maven/src/it/projects</projectsDirectory>
-          <settingsFile>slf4j-caller-info-maven/src/it/mrm/settings.xml</settingsFile>
+          <projectsDirectory>src/it/projects</projectsDirectory>
+          <settingsFile>src/it/mrm/settings.xml</settingsFile>
         </configuration>
         <executions>
           <execution>
