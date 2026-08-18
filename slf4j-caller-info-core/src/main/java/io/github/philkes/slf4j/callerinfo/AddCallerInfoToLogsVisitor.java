@@ -7,7 +7,6 @@ import org.slf4j.MDC;
 
 import java.util.*;
 
-import static org.objectweb.asm.Opcodes.ASM7;
 import static org.objectweb.asm.Opcodes.INVOKESTATIC;
 
 /**
@@ -70,7 +69,7 @@ public class AddCallerInfoToLogsVisitor extends ClassVisitor {
 
     public AddCallerInfoToLogsVisitor(ClassVisitor cv, String className, String injectionMdcParameter,
                                       String injection, Boolean includePackageName, List<String> injectedMethods) {
-        super(ASM7, cv);
+        super(Opcodes.ASM9, cv);
         this.className = className;
         this.injectionMdcParameter = injectionMdcParameter;
         this.injection = injection;
@@ -104,7 +103,7 @@ public class AddCallerInfoToLogsVisitor extends ClassVisitor {
         private int strArgsCounter = 0;
 
         AddCallerInfoToMdcAdapter(MethodVisitor delegate, int access, String name, String desc) {
-            super(Opcodes.ASM5, delegate, access, name, desc);
+            super(Opcodes.ASM9, delegate, access, name, desc);
         }
 
         @Override
