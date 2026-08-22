@@ -1,0 +1,33 @@
+name: Publish to Gradle Plugin Portal
+
+on:
+  workflow_dispatch: # Enables manual trigger button in GitHub UI
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: |
+            25
+            11
+            8
+      - name: Make Gradle wrapper executable
+        working-directory: ./slf4j-caller-info-gradle
+        run: chmod +x ./gradlew
+      - name: Build Maven Plugin
+        run: ./mvnw -B clean install
+      - name: Publish Gradle plugin
+        working-directory: ./slf4j-caller-info-gradle
+        run: |
+          ./gradlew publishPlugins \
+            -Pgradle.publish.key="${{ secrets.GRADLE_PUBLISH_KEY }}" \
+            -Pgradle.publish.secret="${{ secrets.GRADLE_PUBLISH_SECRET }}" \
+            --no-daemon
+        env:
+          GRADLE_PUBLISH_KEY: ${{ secrets.GRADLE_PUBLISH_KEY }}
+          GRADLE_PUBLISH_SECRET: ${{ secrets.GRADLE_PUBLISH_SECRET }}

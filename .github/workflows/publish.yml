@@ -1,0 +1,55 @@
+name: Publish to Sonatype Central and Gradle Plugin Portal
+
+on:
+  release:
+    types: [released]
+
+jobs:
+  publish:
+    if: ${{ github.event_name == 'release' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Make Maven wrapper executable
+        run: chmod +x ./mvnw
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: |
+            25
+            11
+            8
+          server-id: ossrh
+          server-username: SONATYPE_USERNAME
+          server-password: SONATYPE_PASSWORD
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: MAVEN_GPG_PASSPHRASE
+        env:
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+
+      - name: Build Maven Plugin
+        run: ./mvnw -B clean install
+      - name: Publish Maven Plugin
+        run: ./mvnw -B deploy -pl slf4j-caller-info-maven -Pci-cd
+        env:
+          SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
+          SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+
+      - name: Make Gradle wrapper executable
+        working-directory: ./slf4j-caller-info-gradle
+        run: chmod +x ./gradlew
+
+      - name: Publish Gradle plugin
+        working-directory: ./slf4j-caller-info-gradle
+        run: |
+          ./gradlew publishPlugins \
+            -Pgradle.publish.key="${{ secrets.GRADLE_PUBLISH_KEY }}" \
+            -Pgradle.publish.secret="${{ secrets.GRADLE_PUBLISH_SECRET }}" \
+            --no-daemon
+        env:
+          GRADLE_PUBLISH_KEY: ${{ secrets.GRADLE_PUBLISH_KEY }}
+          GRADLE_PUBLISH_SECRET: ${{ secrets.GRADLE_PUBLISH_SECRET }}
