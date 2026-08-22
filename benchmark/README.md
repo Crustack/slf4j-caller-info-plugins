@@ -26,7 +26,7 @@ but even for a project with 10,000 classes the compilation time is only ~2 secon
 ## Usage
 Build the `benchmarks.jar` file for log4j, logback, compiletime modules:
 ```shell
-mvn clean install
+./mvnw clean install
 ```
 To run log4j2, logback, compiletime benchmarks:
 ```shell
