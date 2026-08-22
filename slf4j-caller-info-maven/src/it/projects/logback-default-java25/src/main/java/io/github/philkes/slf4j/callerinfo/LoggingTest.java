@@ -16,4 +16,8 @@ public class LoggingTest {
         log.debug(msg);
         log.trace(msg);
     }
+
+    static void main() {
+        new LoggingTest().log("test");
+    }
 }

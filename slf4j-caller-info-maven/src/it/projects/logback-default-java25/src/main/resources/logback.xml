@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
+    <turboFilter class="io.github.philkes.slf4j.callerinfo.SampleTurboFilter">
+        <Marker>sample</Marker>
+    </turboFilter>
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <!-- Example log pattern including 'callerInformation' MDC parameter for Unit Tests-->

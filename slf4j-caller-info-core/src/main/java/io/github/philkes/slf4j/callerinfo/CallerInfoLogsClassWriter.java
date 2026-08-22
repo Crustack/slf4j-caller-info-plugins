@@ -52,13 +52,14 @@ public class CallerInfoLogsClassWriter {
         ClassReader reader = new ClassReader(new FileInputStream((classFile)));
         ClassWriter writer = new ClassWriter(reader, ClassWriter.COMPUTE_MAXS);
         AddCallerInfoToLogsVisitor callerInfoLogAdapter = new AddCallerInfoToLogsVisitor(writer, reader.getClassName(),
-                injectionMdcParameter, injection, includePackageName, injectedMethods);
+            injectionMdcParameter, injection, includePackageName, injectedMethods);
         reader.accept(callerInfoLogAdapter, ClassReader.EXPAND_FRAMES);
         int logStatementsFound = callerInfoLogAdapter.getLogStatementsCounter();
         if (logStatementsFound > 0) {
             log.info(String.format("%s - %d SLF4J log statements found", classFile.toPath(), logStatementsFound));
+            return writer.toByteArray();
         }
-        return writer.toByteArray();
+        return null;
     }
 
     /**
@@ -76,7 +77,12 @@ public class CallerInfoLogsClassWriter {
         }
         Collection<File> files = FileUtils.listFiles(targetClassDir, new ClassFileFilter(filters), DirectoryFileFilter.DIRECTORY);
         for (File classFile : files) {
-            Files.write(classFile.toPath(), addCallerInfoToLogs(classFile), StandardOpenOption.WRITE);
+            byte[] updatedContents = addCallerInfoToLogs(classFile);
+            if (updatedContents != null) {
+                Files.write(classFile.toPath(), updatedContents, StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE);
+            } else {
+                log.debug(String.format("Skipped %s because no SLF4J log statements found", classFile.toPath()));
+            }
         }
     }
 
