@@ -1,10 +1,10 @@
 plugins {
     java
-    id("io.github.philkes.slf4j-caller-info") version "1.1.0"
+    id("io.github.philkes.slf4j-caller-info") version "1.2.1"
 }
 
 group = "io.github.philkes"
-version = "1.1.0"
+version = "1.2.1"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
