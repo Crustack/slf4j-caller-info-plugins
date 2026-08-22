@@ -26,7 +26,7 @@ Add the Maven plugin to your `pom.xml`:
         <plugin>
             <groupId>io.github.philkes</groupId>
             <artifactId>slf4j-caller-info-maven-plugin</artifactId>
-            <version>1.1.0</version>
+            <version>1.2.1</version>
             <executions>
                 <execution>
                     <goals>
@@ -50,7 +50,7 @@ Apply the Gradle plugin in your build file.
 Kotlin DSL (`build.gradle.kts`):
 ```kotlin
 plugins {
-    id("io.github.philkes.slf4j-caller-info") version "1.1.0"
+    id("io.github.philkes.slf4j-caller-info") version "1.2.1"
 }
 ```
 
