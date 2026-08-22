@@ -14,7 +14,7 @@
   <description>Maven plugin adding caller-information to all SLF4J Log statements during
     compilation
   </description>
-  <url>https://github.com/PhilKes/slfj4-caller-info-maven-plugin</url>
+  <url>https://github.com/Crustack/slf4j-caller-info-plugins</url>
 
   <properties>
     <maven.compiler.target>1.8</maven.compiler.target>
@@ -23,9 +23,9 @@
 
   <developers>
     <developer>
-      <id>Philkes</id>
-      <name>Philipp Kessler</name>
-      <url>https://www.github.com/PhilKes</url>
+      <id>Crustack</id>
+      <name>Crustack</name>
+      <url>https://www.github.com/Crustack</url>
     </developer>
 
   </developers>
@@ -38,10 +38,10 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git@github.com:PhilKes/slf4j-caller-info-maven-plugin.git</connection>
-    <developerConnection>scm:git:git@github.com:PhilKes/slf4j-caller-info-maven-plugin.git
+    <connection>scm:git:git@github.com:Crustack/slf4j-caller-info-maven-plugin.git</connection>
+    <developerConnection>scm:git:git@github.com:Crustack/slf4j-caller-info-maven-plugin.git
     </developerConnection>
-    <url>https://github.com/PhilKes/slf4j-caller-info-maven-plugin</url>
+    <url>https://github.com/Crustack/slf4j-caller-info-maven-plugin</url>
   </scm>
 
   <dependencyManagement>

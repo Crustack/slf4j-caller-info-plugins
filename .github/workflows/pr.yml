@@ -1,0 +1,30 @@
+name: Deploy to Maven Central and Gradle Plugin Portal
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Make Maven wrapper executable
+        run: chmod +x ./mvnw
+      - name: Set up Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: |
+            25
+            11
+            8
+      - name: Build Maven plugin
+        run: ./mvnw -B clean install
+      - name: Make Gradle wrapper executable
+        working-directory: ./slf4j-caller-info-gradle
+        run: chmod +x ./gradlew
+      - name: Build Gradle plugin
+        working-directory: ./slf4j-caller-info-gradle
+        run: ./gradlew build

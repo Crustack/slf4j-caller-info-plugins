@@ -31,8 +31,8 @@ dependencies {
 }
 
 gradlePlugin {
-    website = "https://github.com/PhilKes/slf4j-caller-info-plugins"
-    vcsUrl = "https://github.com/PhilKes/slf4j-caller-info-plugins"
+    website = "https://github.com/Crustack/slf4j-caller-info-plugins"
+    vcsUrl = "https://github.com/Crustack/slf4j-caller-info-plugins"
     description = "Adding caller-information to all SLF4J Log statements during compilation"
     plugins {
         create("slf4j-caller-info") {

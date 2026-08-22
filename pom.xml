@@ -6,7 +6,7 @@
     <version>1.2.1</version>
   <packaging>pom</packaging>
   <name>SLF4J Caller-Information Injection</name>
-  <url>https://github.com/PhilKes/slfj4-caller-info-plugins</url>
+  <url>https://github.com/Crustack/slfj4-caller-info-plugins</url>
 
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -15,9 +15,9 @@
 
     <developers>
         <developer>
-            <id>Philkes</id>
-            <name>Philipp Kessler</name>
-            <url>https://www.github.com/PhilKes</url>
+            <id>Crustack</id>
+            <name>Crustack</name>
+            <url>https://www.github.com/Crustack</url>
         </developer>
     </developers>
 
@@ -29,9 +29,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git@github.com:PhilKes/slf4j-caller-info-maven-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:PhilKes/slf4j-caller-info-maven-plugin.git</developerConnection>
-        <url>https://github.com/PhilKes/slf4j-caller-info-maven-plugin</url>
+        <connection>scm:git:git@github.com:Crustack/slf4j-caller-info-maven-plugin.git</connection>
+        <developerConnection>scm:git:git@github.com:Crustack/slf4j-caller-info-maven-plugin.git</developerConnection>
+        <url>https://github.com/Crustack/slf4j-caller-info-maven-plugin</url>
     </scm>
 
     <modules>
