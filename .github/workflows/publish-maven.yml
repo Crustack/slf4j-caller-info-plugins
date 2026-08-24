@@ -30,7 +30,7 @@ jobs:
       - name: Build Maven Plugin
         run: ./mvnw -B clean install
       - name: Publish Maven Plugin
-        run: ./mvnw -B deploy -pl slf4j-caller-info-maven -Pci-cd
+        run: ./mvnw -B deploy -pl slf4j-caller-info-maven -Pci-cd -Dgpg.keyname=${{ secrets.MAVEN_GPG_KEY }} -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
