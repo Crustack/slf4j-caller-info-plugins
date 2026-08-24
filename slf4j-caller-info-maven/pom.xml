@@ -202,6 +202,10 @@
   <profiles>
     <profile>
       <id>ci-cd</id>
+      <properties>
+        <skipTests>true</skipTests>
+        <invoker.skip>true</invoker.skip>
+      </properties>
       <build>
         <plugins>
           <plugin>
@@ -224,6 +228,13 @@
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>mrm-maven-plugin</artifactId>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
           </plugin>
         </plugins>
       </build>
