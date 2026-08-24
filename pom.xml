@@ -29,9 +29,9 @@
     </licenses>
 
     <scm>
-        <connection>scm:git:git@github.com:Crustack/slf4j-caller-info-maven-plugin.git</connection>
-        <developerConnection>scm:git:git@github.com:Crustack/slf4j-caller-info-maven-plugin.git</developerConnection>
-        <url>https://github.com/Crustack/slf4j-caller-info-maven-plugin</url>
+        <connection>scm:git:git@github.com:Crustack/slf4j-caller-info-plugins.git</connection>
+        <developerConnection>scm:git:git@github.com:Crustack/slf4j-caller-info-plugins.git</developerConnection>
+        <url>https://github.com/Crustack/slf4j-caller-info-plugins</url>
     </scm>
 
     <modules>
