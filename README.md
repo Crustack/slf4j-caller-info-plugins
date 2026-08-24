@@ -1,6 +1,6 @@
 # slf4j-caller-info-plugins
-<a href="https://mvnrepository.com/artifact/io.github.philkes/slf4j-caller-info-maven-plugin"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.philkes/slf4j-caller-info-maven-plugin"></a>
-<a href="https://plugins.gradle.org/plugin/io.github.philkes.slf4j-caller-info"><img alt="Gradle Plugin Portal Version" src="https://img.shields.io/gradle-plugin-portal/v/io.github.philkes.slf4j-caller-info"></a>
+<a href="https://mvnrepository.com/artifact/io.github.crustack/slf4j-caller-info-maven-plugin"><img alt="Maven Central Version" src="https://img.shields.io/maven-central/v/io.github.crustack/slf4j-caller-info-maven-plugin"></a>
+<a href="https://plugins.gradle.org/plugin/io.github.crustack.slf4j-caller-info"><img alt="Gradle Plugin Portal Version" src="https://img.shields.io/gradle-plugin-portal/v/io.github.crustack.slf4j-caller-info"></a>
 [![Known Vulnerabilities](https://snyk.io/test/github/Crustack/slf4j-caller-info-plugins/badge.svg)](https://snyk.io/test/github/Crustack/slf4j-caller-info-plugins)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue)](./LICENSE)
 
@@ -24,7 +24,7 @@ Add the Maven plugin to your `pom.xml`:
 <build>
     <plugins>
         <plugin>
-            <groupId>io.github.philkes</groupId>
+            <groupId>io.github.crustack</groupId>
             <artifactId>slf4j-caller-info-maven-plugin</artifactId>
             <version>1.2.1</version>
             <executions>
@@ -50,7 +50,7 @@ Apply the Gradle plugin in your build file.
 Kotlin DSL (`build.gradle.kts`):
 ```kotlin
 plugins {
-    id("io.github.philkes.slf4j-caller-info") version "1.2.1"
+    id("io.github.crustack.slf4j-caller-info") version "1.2.1"
 }
 ```
 
@@ -73,9 +73,9 @@ See [logback.xml](slf4j-caller-info-maven/src/it/projects/logback/src/test/resou
 </appender>
 ...
 ```
-See [LoggingTest.java](slf4j-caller-info-maven/src/it/projects/logback/src/main/java/io/github/philkes/slf4j/callerinfo/LoggingTest.java):
+See [LoggingTest.java](slf4j-caller-info-maven/src/it/projects/logback/src/main/java/io/github/crustack/slf4j/callerinfo/LoggingTest.java):
 ```java
-1   package io.github.philkes.slf4j.callerinfo;
+1   package io.github.crustack.slf4j.callerinfo;
 2
 3   import org.slf4j.Logger;
 4   import org.slf4j.LoggerFactory;
@@ -166,7 +166,7 @@ slf4jCallerInfo {
     includePackageName = false
 
     // Limit injection to specific classes (regex on classfile path or name)
-    filters = io.github.philkes.slf4j.callerinfo.ClassFilters().apply {
+    filters = io.github.crustack.slf4j.callerinfo.ClassFilters().apply {
         includes = listOf(".*")
         excludes = listOf()
     }
