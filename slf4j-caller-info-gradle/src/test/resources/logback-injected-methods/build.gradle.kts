@@ -1,9 +1,9 @@
 plugins {
     java
-    id("io.github.crustack.slf4j-caller-info") version "1.2.1"
+    id("io.github.philkes.slf4j-caller-info") version "1.2.1"
 }
 
-group = "io.github.crustack"
+group = "io.github.philkes"
 version = "1.2.1"
 
 java {
@@ -24,6 +24,6 @@ dependencies {
 slf4jCallerInfo {
     injectedMethods = listOf(
         // Only inject into the custom method, not into excludedMethod
-        "io/github/crustack/slf4j/callerinfo/LoggingWrapper#customLogMethod.*"
+        "io/github/philkes/slf4j/callerinfo/LoggingWrapper#customLogMethod.*"
     )
 }
