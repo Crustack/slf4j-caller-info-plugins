@@ -24,14 +24,16 @@ jobs:
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: MAVEN_GPG_PASSPHRASE
         env:
+          MAVEN_GPG_KEYNAME: ${{ secrets.MAVEN_GPG_KEYNAME }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
       - name: Build Maven Plugin
         run: ./mvnw -B clean install
       - name: Publish Maven Plugin
-        run: ./mvnw -B deploy -pl slf4j-caller-info-maven -Pci-cd -Dgpg.keyname=${{ secrets.MAVEN_GPG_KEY }} -Dgpg.passphrase=${{ secrets.MAVEN_GPG_PASSPHRASE }}
+        run: ./mvnw -B deploy -pl slf4j-caller-info-maven -Pci-cd -Dgpg.keyname=${{ secrets.MAVEN_GPG_KEYNAME }} -Dgpg.passphrase="${{ secrets.MAVEN_GPG_PASSPHRASE }}"
         env:
           SONATYPE_USERNAME: ${{ secrets.SONATYPE_USERNAME }}
           SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+          MAVEN_GPG_KEYNAME: ${{ secrets.MAVEN_GPG_KEYNAME }}
