@@ -3,7 +3,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>io.github.philkes</groupId>
+    <groupId>io.github.crustack</groupId>
     <artifactId>slf4j-caller-info</artifactId>
     <version>1.2.1</version>
   </parent>
@@ -47,7 +47,7 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>io.github.philkes</groupId>
+        <groupId>io.github.crustack</groupId>
         <artifactId>slf4j-caller-info-bom</artifactId>
         <version>${project.version}</version>
         <type>pom</type>
@@ -58,7 +58,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>io.github.philkes</groupId>
+      <groupId>io.github.crustack</groupId>
       <artifactId>slf4j-caller-info-core</artifactId>
       <version>${project.version}</version>
     </dependency>

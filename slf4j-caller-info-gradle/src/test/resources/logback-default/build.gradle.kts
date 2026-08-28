@@ -1,9 +1,9 @@
 plugins {
     java
-    id("io.github.philkes.slf4j-caller-info") version "1.2.1"
+    id("io.github.crustack.slf4j-caller-info") version "1.2.1"
 }
 
-group = "io.github.philkes"
+group = "io.github.crustack"
 version = "1.2.1"
 
 java {

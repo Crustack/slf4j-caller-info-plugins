@@ -7,7 +7,7 @@ plugins {
     kotlin("jvm") version "2.2.0"
 }
 
-group = "io.github.philkes"
+group = "io.github.crustack"
 version = "1.2.1"
 
 repositories {
@@ -16,8 +16,8 @@ repositories {
 }
 
 dependencies {
-    implementation(platform("io.github.philkes:slf4j-caller-info-bom:${version}"))
-    implementation("io.github.philkes:slf4j-caller-info-core:${version}")
+    implementation(platform("io.github.crustack:slf4j-caller-info-bom:${version}"))
+    implementation("io.github.crustack:slf4j-caller-info-core:${version}")
     implementation("org.ow2.asm:asm")
     implementation("org.ow2.asm:asm-commons")
     implementation("commons-io:commons-io")
@@ -36,11 +36,11 @@ gradlePlugin {
     description = "Adding caller-information to all SLF4J Log statements during compilation"
     plugins {
         create("slf4j-caller-info") {
-            id = "io.github.philkes.slf4j-caller-info"
+            id = "io.github.crustack.slf4j-caller-info"
             displayName = "SLF4J Caller-Information Injection"
             description = "Adding caller-information to all SLF4J Log statements during compilation"
             tags = listOf("slf4j", "caller-information", "asm")
-            implementationClass = "io.github.philkes.slf4j.callerinfo.Slf4jCallerInfoPlugin"
+            implementationClass = "io.github.crustack.slf4j.callerinfo.Slf4jCallerInfoPlugin"
         }
     }
 }
